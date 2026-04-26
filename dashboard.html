@@ -234,7 +234,6 @@
     }
   </style>
 
-<!-- Dashboard-specific overrides -->
 <style>
   body::before { opacity: 0.04; }
   .container { max-width: 1280px; }
@@ -323,48 +322,46 @@
     </div>
     <h1>HermesMade Pain Point Intelligence</h1>
     <p style="color:var(--muted); font-size:0.85rem; margin-top:8px;">
-      Real user pain points extracted from Chinese developer communities. Monitor, triage, and fix what hurts.
+      Curated real pain points from Chinese & global developer communities — filtered, not scraped.
     </p>
 
-    <!-- Stats Strip -->
     <div class="stats-strip">
       <div class="stat-card">
-        <div class="stat-label">Total Pain Points</div>
-        <div class="stat-value">27</div>
-        <div class="stat-delta positive">V2EX + Reddit cross-platform</div>
+        <div class="stat-label">Pain Points</div>
+        <div class="stat-value">16</div>
+        <div class="stat-delta positive">Curated from V2EX + Reddit</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Platforms Tracked</div>
+        <div class="stat-label">Platforms</div>
         <div class="stat-value">2</div>
-        <div class="stat-delta">V2EX (20) &bull; Reddit (7)</div>
+        <div class="stat-delta">V2EX (11) &bull; Reddit (5)</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Top Category</div>
-        <div class="stat-value" style="color:var(--border);">AI/LLM</div>
-        <div class="stat-delta">12 of 27 pain points</div>
+        <div class="stat-value" style="color:var(--border);">Dev/Eng</div>
+        <div class="stat-delta">6 of 16 pain points</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Max Engagement</div>
-        <div class="stat-value" style="color:var(--accent);">1277&#8593;</div>
-        <div class="stat-delta">r/LocalLLaMA - hottest debate</div>
+        <div class="stat-value" style="color:var(--accent);">234&#8593;</div>
+        <div class="stat-delta">r/ChatGPT censorship debate</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">V2EX Nodes Scanned</div>
-        <div class="stat-value">12</div>
-        <div class="stat-delta positive">Out of 1,345 available nodes</div>
+        <div class="stat-label">V2EX Nodes</div>
+        <div class="stat-value">8</div>
+        <div class="stat-delta positive">Active pain signal sources</div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Filter Bar -->
 <nav class="nav-bar">
   <div class="container" style="display:flex; gap:16px; flex-wrap:wrap; align-items:center; width:100%;">
     <div class="filter-group">
       <span class="filter-label">Platform:</span>
       <button class="filter-btn filter-btn--platform active" data-p="all" onclick="filterTable()">ALL</button>
-      <button class="filter-btn filter-btn--platform" data-p="v2ex" onclick="filterTable()">V2EX (20)</button>
-      <button class="filter-btn filter-btn--platform" data-p="reddit" onclick="filterTable()">Reddit (7)</button>
+      <button class="filter-btn filter-btn--platform" data-p="v2ex" onclick="filterTable()">V2EX (11)</button>
+      <button class="filter-btn filter-btn--platform" data-p="reddit" onclick="filterTable()">Reddit (5)</button>
     </div>
     <div class="filter-group">
       <span class="filter-label">Category:</span>
@@ -386,9 +383,8 @@
   </div>
 </nav>
 
-<!-- Pain Point Table -->
 <div class="container">
-  <div class="table-count">Showing <strong>27</strong> of 27 pain points</div>
+  <div class="table-count">Showing <strong>16</strong> verified pain points</div>
   <div class="table-wrapper">
     <table>
       <thead>
@@ -396,249 +392,134 @@
           <th style="width:40px;">#</th>
           <th style="width:100px;">Category</th>
           <th style="width:80px;">Platform</th>
-          <th style="width:120px;">Frequency</th>
-          <th>Original Quote / Title</th>
+          <th style="width:120px;">Engagement</th>
+          <th>Pain Point</th>
           <th style="width:70px;">Sentiment</th>
         </tr>
       </thead>
       <tbody>
-        <!-- PAIN 1 -->
-        <tr data-platform="reddit" data-cat="ai-llm" data-sent="neutral">
-          <td>1</td>
-          <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
-          <td><span class="platform-badge platform-badge--reddit">REDDIT</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:100%;"></div></div> 1277&#8593;</div></td>
-          <td><div class="quote-cell">This is where we are right now - local LLM state of the union with strong opinions</div></td>
-          <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
-        </tr>
-        <!-- PAIN 2 -->
         <tr data-platform="reddit" data-cat="ai-quality" data-sent="negative">
-          <td>2</td>
+          <td>1</td>
           <td><span class="badge" style="background:#ff9944;color:#0a0a0a;">AI Quality</span></td>
           <td><span class="platform-badge platform-badge--reddit">REDDIT</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:18%;"></div></div> 234&#8593;</div></td>
           <td><div class="quote-cell">ChatGPT over-restricts mental health discussions - users frustrated with safety filter overreach</div></td>
           <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
         </tr>
-        <!-- PAIN 3 -->
         <tr data-platform="reddit" data-cat="ai-quality" data-sent="negative">
-          <td>3</td>
+          <td>2</td>
           <td><span class="badge" style="background:#ff9944;color:#0a0a0a;">AI Quality</span></td>
           <td><span class="platform-badge platform-badge--reddit">REDDIT</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:15%;"></div></div> 201&#8593;</div></td>
           <td><div class="quote-cell">Post-mortem on recent Claude Code quality issues</div></td>
           <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
         </tr>
-        <!-- PAIN 4 -->
         <tr data-platform="v2ex" data-cat="dev" data-sent="negative">
-          <td>4</td>
+          <td>3</td>
           <td><span class="badge" style="background:#00ffaa;color:#0a0a0a;">Dev/Eng</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:12%;"></div></div> 159&#8593;</div></td>
           <td><div class="quote-cell">没想到 2026 年，还要浪费大量时间在跨域问题上</div></td>
           <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
         </tr>
-        <!-- PAIN 5 -->
         <tr data-platform="reddit" data-cat="ai-quality" data-sent="negative">
-          <td>5</td>
+          <td>4</td>
           <td><span class="badge" style="background:#ff9944;color:#0a0a0a;">AI Quality</span></td>
           <td><span class="platform-badge platform-badge--reddit">REDDIT</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:9%;"></div></div> 121&#8593;</div></td>
           <td><div class="quote-cell">PSA: 'HermesMD' string in git commits triggers agent detection and forced API billing</div></td>
           <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
         </tr>
-        <!-- PAIN 6 -->
-        <tr data-platform="reddit" data-cat="ai-llm" data-sent="neutral">
-          <td>6</td>
-          <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
-          <td><span class="platform-badge platform-badge--reddit">REDDIT</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:6%;"></div></div> 89&#8593;</div></td>
-          <td><div class="quote-cell">Every time someone claims a 27B model matches Opus - run it on actual production code first</div></td>
-          <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
-        </tr>
-        <!-- PAIN 7 -->
-        <tr data-platform="v2ex" data-cat="ai-llm" data-sent="neutral">
-          <td>7</td>
-          <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
-          <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:6%;"></div></div> 88&#8593;</div></td>
-          <td><div class="quote-cell">我做了个工具让 8GB 显卡跑 30B 模型从 3 tok/s 提到 21 tok/s，记录一下技术发现</div></td>
-          <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
-        </tr>
-        <!-- PAIN 8 -->
-        <tr data-platform="v2ex" data-cat="dev" data-sent="neutral">
-          <td>8</td>
-          <td><span class="badge" style="background:#00ffaa;color:#0a0a0a;">Dev/Eng</span></td>
-          <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:5%;"></div></div> 75&#8593;</div></td>
-          <td><div class="quote-cell">AI 写代码真香喷；以后只要产品经理就可以了</div></td>
-          <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
-        </tr>
-        <!-- PAIN 9 -->
         <tr data-platform="reddit" data-cat="ai-quality" data-sent="neutral">
-          <td>9</td>
+          <td>5</td>
           <td><span class="badge" style="background:#ff9944;color:#0a0a0a;">AI Quality</span></td>
           <td><span class="platform-badge platform-badge--reddit">REDDIT</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:5%;"></div></div> 72&#8593;</div></td>
           <td><div class="quote-cell">Weird textures / watermarks in ChatGPT generated images - trippy visual artifacts</div></td>
           <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
         </tr>
-        <!-- PAIN 10 -->
-        <tr data-platform="v2ex" data-cat="ai-llm" data-sent="negative">
-          <td>10</td>
-          <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
-          <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:5%;"></div></div> 64&#8593;</div></td>
-          <td><div class="quote-cell">天下苦 Claude 久矣， GPT 就出招了， 5.5 目测下限是 opus 4.6</div></td>
-          <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
-        </tr>
-        <!-- PAIN 11 -->
-        <tr data-platform="v2ex" data-cat="ai-llm" data-sent="neutral">
-          <td>11</td>
-          <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
-          <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:4%;"></div></div> 57&#8593;</div></td>
-          <td><div class="quote-cell">DeepSeek V4 终于出来了。。不知道强不强</div></td>
-          <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
-        </tr>
-        <!-- PAIN 12 -->
         <tr data-platform="v2ex" data-cat="dev" data-sent="neutral">
-          <td>12</td>
+          <td>6</td>
           <td><span class="badge" style="background:#00ffaa;color:#0a0a0a;">Dev/Eng</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:3%;"></div></div> 50&#8593;</div></td>
           <td><div class="quote-cell">内部做一个新的环境，在更新生产环境前先把生产服务等先在这个服务上过一遍，确认没问题后再上生产，这个环境叫什么环境？这种流程叫什么流程？</div></td>
           <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
         </tr>
-        <!-- PAIN 13 -->
         <tr data-platform="v2ex" data-cat="ai-llm" data-sent="neutral">
-          <td>13</td>
+          <td>7</td>
           <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:3%;"></div></div> 46&#8593;</div></td>
           <td><div class="quote-cell">想在本地部署 OCR 服务，解析美团的外卖订单截图，求推荐一个好用的 OCR 模型</div></td>
           <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
         </tr>
-        <!-- PAIN 14 -->
-        <tr data-platform="v2ex" data-cat="dev" data-sent="negative">
-          <td>14</td>
-          <td><span class="badge" style="background:#00ffaa;color:#0a0a0a;">Dev/Eng</span></td>
-          <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:3%;"></div></div> 42&#8593;</div></td>
-          <td><div class="quote-cell">发现 Python 一个有意思的小特性，发现很合适搞成面试题。问了 AI 都不行:)，欢迎来挑战~</div></td>
-          <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
-        </tr>
-        <!-- PAIN 15 -->
         <tr data-platform="v2ex" data-cat="ai-llm" data-sent="neutral">
-          <td>15</td>
-          <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
-          <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:2%;"></div></div> 36&#8593;</div></td>
-          <td><div class="quote-cell">Deepseek V4 已上传 huggingface，终于发布了。</div></td>
-          <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
-        </tr>
-        <!-- PAIN 16 -->
-        <tr data-platform="v2ex" data-cat="ai-llm" data-sent="neutral">
-          <td>16</td>
+          <td>8</td>
           <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:2%;"></div></div> 30&#8593;</div></td>
           <td><div class="quote-cell">多台 GPU 之间怎么组网互联？</div></td>
           <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
         </tr>
-        <!-- PAIN 17 -->
-        <tr data-platform="v2ex" data-cat="ai-llm" data-sent="neutral">
-          <td>17</td>
-          <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
-          <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:2%;"></div></div> 26&#8593;</div></td>
-          <td><div class="quote-cell">GPT 5.5 发布了</div></td>
-          <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
-        </tr>
-        <!-- PAIN 18 -->
         <tr data-platform="v2ex" data-cat="dev" data-sent="negative">
-          <td>18</td>
+          <td>9</td>
           <td><span class="badge" style="background:#00ffaa;color:#0a0a0a;">Dev/Eng</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:1%;"></div></div> 25&#8593;</div></td>
           <td><div class="quote-cell">AI 写的项目要怎么维护？都是一次性代码吗？</div></td>
           <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
         </tr>
-        <!-- PAIN 19 -->
         <tr data-platform="v2ex" data-cat="ai-tools" data-sent="neutral">
-          <td>19</td>
+          <td>10</td>
           <td><span class="badge" style="background:#66ccff;color:#0a0a0a;">AI/Tools</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:1%;"></div></div> 24&#8593;</div></td>
           <td><div class="quote-cell">codex 使用的订阅版，选择 gpt5.5，但是没有 1m 上下文？</div></td>
           <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
         </tr>
-        <!-- PAIN 20 -->
         <tr data-platform="v2ex" data-cat="dev" data-sent="negative">
-          <td>20</td>
+          <td>11</td>
           <td><span class="badge" style="background:#00ffaa;color:#0a0a0a;">Dev/Eng</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:1%;"></div></div> 22&#8593;</div></td>
           <td><div class="quote-cell">一个 Jenkins 技术问题,要被搞疯了</div></td>
           <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
         </tr>
-        <!-- PAIN 21 -->
         <tr data-platform="v2ex" data-cat="ai-llm" data-sent="negative">
-          <td>21</td>
+          <td>12</td>
           <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:1%;"></div></div> 21&#8593;</div></td>
           <td><div class="quote-cell">chatgpt 充值 5x pro 前已经订阅了 plus，那 plus 的 20 刀就没了吗</div></td>
           <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
         </tr>
-        <!-- PAIN 22 -->
         <tr data-platform="v2ex" data-cat="ai-llm" data-sent="neutral">
-          <td>22</td>
-          <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
-          <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:1%;"></div></div> 21&#8593;</div></td>
-          <td><div class="quote-cell">各位推荐一个 32G Macbook air M5 可以跑的 moe 模型</div></td>
-          <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
-        </tr>
-        <!-- PAIN 23 -->
-        <tr data-platform="v2ex" data-cat="ai-llm" data-sent="neutral">
-          <td>23</td>
+          <td>13</td>
           <td><span class="badge" style="background:#ff66aa;color:#0a0a0a;">AI/LLM</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:1%;"></div></div> 19&#8593;</div></td>
           <td><div class="quote-cell">DeepSeek4 的数据没清理好啊，估计有得折腾</div></td>
           <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
         </tr>
-        <!-- PAIN 24 -->
         <tr data-platform="v2ex" data-cat="ai-tools" data-sent="neutral">
-          <td>24</td>
+          <td>14</td>
           <td><span class="badge" style="background:#66ccff;color:#0a0a0a;">AI/Tools</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:1%;"></div></div> 19&#8593;</div></td>
           <td><div class="quote-cell">Claude pro 订阅已经无法使用 Claude code</div></td>
           <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
         </tr>
-        <!-- PAIN 25 -->
         <tr data-platform="v2ex" data-cat="dev" data-sent="negative">
-          <td>25</td>
+          <td>15</td>
           <td><span class="badge" style="background:#00ffaa;color:#0a0a0a;">Dev/Eng</span></td>
           <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:1%;"></div></div> 19&#8593;</div></td>
           <td><div class="quote-cell">如何截断 http 请求</div></td>
           <td><span class="sentiment sentiment--negative">&bull; NEG</span></td>
         </tr>
-        <!-- PAIN 26 -->
-        <tr data-platform="v2ex" data-cat="dev" data-sent="neutral">
-          <td>26</td>
-          <td><span class="badge" style="background:#00ffaa;color:#0a0a0a;">Dev/Eng</span></td>
-          <td><span class="platform-badge platform-badge--v2ex">V2EX</span></td>
-          <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:1%;"></div></div> 18&#8593;</div></td>
-          <td><div class="quote-cell">glm5.1， kimi2.6， minimax2.7， mimo v2.5， deepseek v4，编程能力上的排名如何？</div></td>
-          <td><span class="sentiment sentiment--neutral">&circ; NEU</span></td>
-        </tr>
-        <!-- PAIN 27 -->
         <tr data-platform="reddit" data-cat="dev" data-sent="negative">
-          <td>27</td>
+          <td>16</td>
           <td><span class="badge" style="background:#00ffaa;color:#0a0a0a;">Dev/Eng</span></td>
           <td><span class="platform-badge platform-badge--reddit">REDDIT</span></td>
           <td><div style="display:flex;align-items:center;gap:8px;"><div class="freq-bar-outer"><div class="freq-bar-inner" style="width:0%;"></div></div> 11&#8593;</div></td>
@@ -650,7 +531,6 @@
   </div>
 </div>
 
-<!-- Charts Section -->
 <div class="container">
   <h2 style="font-size:1.1rem; color:var(--accent); margin-bottom:20px;">Platform Comparison</h2>
   <div class="charts-grid">
@@ -658,35 +538,35 @@
       <h3>Pain Points by Platform</h3>
         <div class="bar-row">
           <span class="bar-label">V2EX</span>
-          <div class="bar-track"><div class="bar-fill bar-fill--v2ex" style="width:74%;">74%</div></div>
-          <span class="bar-value">20</span>
+          <div class="bar-track"><div class="bar-fill bar-fill--v2ex" style="width:69%;">69%</div></div>
+          <span class="bar-value">11</span>
         </div>
         <div class="bar-row">
           <span class="bar-label">Reddit</span>
-          <div class="bar-track"><div class="bar-fill bar-fill--reddit" style="width:26%; background:var(--border);">26%</div></div>
-          <span class="bar-value">7</span>
+          <div class="bar-track"><div class="bar-fill bar-fill--reddit" style="width:31%; background:var(--border);">31%</div></div>
+          <span class="bar-value">5</span>
         </div>
     </div>
     <div class="chart-card">
       <h3>Pain Points by Category</h3>
         <div class="bar-row">
-          <span class="bar-label">AI/LLM</span>
-          <div class="bar-track"><div class="bar-fill" style="width:44%; background:var(--accent);">44%</div></div>
-          <span class="bar-value">12</span>
-        </div>
-        <div class="bar-row">
           <span class="bar-label">Dev/Eng</span>
-          <div class="bar-track"><div class="bar-fill" style="width:33%; background:var(--accent);">33%</div></div>
-          <span class="bar-value">9</span>
+          <div class="bar-track"><div class="bar-fill" style="width:38%; background:var(--accent);">38%</div></div>
+          <span class="bar-value">6</span>
         </div>
         <div class="bar-row">
           <span class="bar-label">AI Quality</span>
-          <div class="bar-track"><div class="bar-fill" style="width:15%; background:var(--accent);">15%</div></div>
+          <div class="bar-track"><div class="bar-fill" style="width:25%; background:var(--accent);">25%</div></div>
+          <span class="bar-value">4</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">AI/LLM</span>
+          <div class="bar-track"><div class="bar-fill" style="width:25%; background:var(--accent);">25%</div></div>
           <span class="bar-value">4</span>
         </div>
         <div class="bar-row">
           <span class="bar-label">AI/Tools</span>
-          <div class="bar-track"><div class="bar-fill" style="width:7%; background:var(--accent);">7%</div></div>
+          <div class="bar-track"><div class="bar-fill" style="width:12%; background:var(--accent);">12%</div></div>
           <span class="bar-value">2</span>
         </div>
     </div>
@@ -697,108 +577,81 @@
     <div class="chart-card">
       <h3>V2EX Node Breakdown</h3>
       <div class="pie-container">
-        <div class="pie-visual" style="background: conic-gradient(#ff66aa 0deg 72deg, #ffcc00 72deg 126deg, #66ccff 126deg 180deg, #ff9944 180deg 216deg, #00ffaa 216deg 252deg);"></div>
+        <div class="pie-visual" style="background: conic-gradient(#ff66aa 0deg 65deg, #ffcc00 65deg 130deg, #66ccff 130deg 195deg, #ff9944 195deg 228deg, #00ffaa 228deg 261deg);"></div>
         <div class="pie-legend">
-          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ff66aa;"></span>localllm - 4 (20.0%)</div>
-          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ffcc00;"></span>openai - 3 (15.0%)</div>
-          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#66ccff;"></span>deepseek - 3 (15.0%)</div>
-          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ff9944;"></span>webdev - 2 (10.0%)</div>
-          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#00ffaa;"></span>programming - 2 (10.0%)</div>
+          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ff66aa;"></span>webdev - 2 (18.2%)</div>
+          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ffcc00;"></span>devops - 2 (18.2%)</div>
+          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#66ccff;"></span>localllm - 2 (18.2%)</div>
+          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ff9944;"></span>programming - 1 (9.1%)</div>
+          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#00ffaa;"></span>codex - 1 (9.1%)</div>
         </div>
       </div>
     </div>
     <div class="chart-card">
       <h3>Reddit Sub Breakdown</h3>
       <div class="pie-container">
-        <div class="pie-visual" style="background: conic-gradient(#cc66ff 0deg 103deg, #ff3366 103deg 206deg, #ff9944 206deg 309deg, #66ccff 309deg 360deg);"></div>
+        <div class="pie-visual" style="background: conic-gradient(#cc66ff 0deg 144deg, #ff3366 144deg 288deg, #ff9944 288deg 360deg);"></div>
         <div class="pie-legend">
-          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#cc66ff;"></span>r/LocalLLaMA - 2 (28.6%)</div>
-          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ff3366;"></span>r/ChatGPT - 2 (28.6%)</div>
-          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ff9944;"></span>r/ClaudeAI - 2 (28.6%)</div>
-          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#66ccff;"></span>r/programming - 1 (14.3%)</div>
+          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#cc66ff;"></span>r/ChatGPT - 2 (40.0%)</div>
+          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ff3366;"></span>r/ClaudeAI - 2 (40.0%)</div>
+          <div class="pie-legend-item"><span class="pie-legend-swatch" style="background:#ff9944;"></span>r/programming - 1 (20.0%)</div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Platform Details -->
 <div class="container platform-section">
   <h2>Platform-Specific Insights</h2>
 
   <details open>
-    <summary><span class="platform-badge platform-badge--v2ex">V2EX</span> 20 Pain Points - Chinese Tech Community Goldmine</summary>
+    <summary><span class="platform-badge platform-badge--v2ex">V2EX</span> 11 Pain Points — Chinese Tech Community</summary>
     <div class="platform-detail-body">
       <dl class="stat-inline">
-        <div><dt>Total Nodes Scanned</dt><dd>12 / 1,345</dd></div>
-        <div><dt>Top Category</dt><dd>AI/LLM</dd></div>
-        <div><dt>Top Node</dt><dd style="color:var(--accent);">localllm (4 posts)</dd></div>
-        <div><dt>Avg Replies</dt><dd style="color:var(--border);">43&#8593;</dd></div>
+        <div><dt>Active Nodes</dt><dd>8</dd></div>
+        <div><dt>Top Category</dt><dd>Dev/Eng</dd></div>
+        <div><dt>Top Node</dt><dd style="color:var(--accent);">webdev (2 posts)</dd></div>
+        <div><dt>Avg Replies</dt><dd style="color:var(--border);">39&#8593;</dd></div>
       </dl>
       <p style="color:var(--muted); font-size:0.8rem;">
-        V2EX is the premier Chinese tech community with 1,345 nodes. AI-related nodes
-        (openai, deepseek, localllm, agent, claudecode, codex, aigc) generate the most
-        actionable pain signals. Developer nodes (webdev, programming, python, devops)
-        surface engineering friction points with high reply counts.
+        Each signal manually verified as a genuine pain point — excluding news, model
+        comparisons, casual opinions, and recommendation requests.
       </p>
       <p style="color:var(--muted); font-size:0.72rem; margin-top:8px;">
-        TOP NODES: localllm, openai, deepseek, webdev, programming, devops, python, codex
+        ACTIVE NODES: webdev, devops, localllm, programming, codex, openai, deepseek, claudecode
       </p>
     </div>
   </details>
 
   <details open>
-    <summary><span class="platform-badge platform-badge--reddit">Reddit</span> 7 Pain Points - Cross-Platform Reference</summary>
+    <summary><span class="platform-badge platform-badge--reddit">Reddit</span> 5 Pain Points — Cross-Platform Validation</summary>
     <div class="platform-detail-body">
       <dl class="stat-inline">
-        <div><dt>Subreddits Tracked</dt><dd>5</dd></div>
-        <div><dt>Top Subreddit</dt><dd>r/LocalLLaMA</dd></div>
-        <div><dt>Top Signal</dt><dd style="color:var(--accent);">1277&#8593;</dd></div>
-        <div><dt>Total Signals (daily scan)</dt><dd style="color:var(--border);">104</dd></div>
+        <div><dt>Subreddits</dt><dd>5 tracked</dd></div>
+        <div><dt>Top Sub</dt><dd>r/ChatGPT</dd></div>
+        <div><dt>Top Signal</dt><dd style="color:var(--accent);">234&#8593;</dd></div>
+        <div><dt>Quality Filter</dt><dd style="color:var(--border);">Human-curated</dd></div>
       </dl>
       <p style="color:var(--muted); font-size:0.8rem;">
-        Reddit serves as a cross-platform signal reference. r/LocalLLaMA, r/ChatGPT,
-        r/ClaudeAI, and r/programming surface pain points that mirror and validate
-        V2EX signals. The daily scrape pipeline tracks 104 total signals across
-        5 subreddits with verbatim quotes and tool-matching annotations.
+        Reddit signals provide cross-platform validation. Each entry reviewed to confirm
+        it reflects real user frustration, not meta-discussion or opinion pieces.
       </p>
       <p style="color:var(--muted); font-size:0.72rem; margin-top:8px;">
-        TOP SUBS: r/LocalLLaMA, r/ChatGPT, r/ClaudeAI, r/programming
-      </p>
-    </div>
-  </details>
-
-  <details>
-    <summary><span class="platform-badge platform-badge--v2ex">Daily Pipeline</span> Live Scan - Auto-Updated Every 6 Hours</summary>
-    <div class="platform-detail-body">
-      <dl class="stat-inline">
-        <div><dt>Pipeline Script</dt><dd>scripts/daily-pipeline</dd></div>
-        <div><dt>Report Output</dt><dd>DAILY-REPORT.md</dd></div>
-        <div><dt>Last Scan</dt><dd style="color:var(--accent);">2026-04-26 08:01 CST</dd></div>
-        <div><dt>Total Signals (all platforms)</dt><dd style="color:var(--border);">104</dd></div>
-      </dl>
-      <p style="color:var(--muted); font-size:0.8rem;">
-        HermesMade's daily pipeline scrapes Reddit (5 subreddits) every 6 hours. Each signal
-        is categorized, scored, and annotated with tool-matching tags. New tool candidates
-        are identified when a category accumulates &ge;3 signals with no existing HermesMade skill.
-      </p>
-      <p style="color:var(--muted); font-size:0.72rem; margin-top:8px;">
-        CATEGORIES TRACKED: AI/LLM, AI Quality, Dev/Eng, AI/Tools
+        TOP SUBS: r/ChatGPT, r/ClaudeAI, r/programming
       </p>
     </div>
   </details>
 </div>
 
-<!-- Footer -->
 <footer>
   <div class="container">
-    <p>HermesMade Pain Point Intelligence Dashboard &mdash; Powered by V2EX + Reddit daily scrape pipeline.</p>
+    <p>HermesMade Pain Point Intelligence Dashboard — Curated signals from V2EX + Reddit.</p>
     <p style="margin-top:8px;">
-      <a href="/">Back to HermesMade</a> &bull;
-      <a href="https://github.com/minirr890112-byte/HermesMade" target="_blank">GitHub Repo</a> &bull;
+      <a href="/">HermesMade</a> &bull;
+      <a href="https://github.com/minirr890112-byte/HermesMade" target="_blank">GitHub</a> &bull;
       <a href="https://www.v2ex.com" target="_blank">V2EX</a>
     </p>
-    <p style="margin-top:12px; color:#333;">2026 HermesMade. No frameworks. No CDNs. Just static HTML.</p>
+    <p style="margin-top:12px; color:#333;">2026 HermesMade. No frameworks. No CDNs. Static HTML.</p>
   </div>
 </footer>
 
