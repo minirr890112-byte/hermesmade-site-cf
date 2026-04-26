@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HermesMade — Pain-Driven CLI Tools</title>
+  <style>
+    /* ===== CSS RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ===== NOISE TEXTURE OVERLAY ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== HEADER ===== */
+    .neo-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 3px solid #ff6b35;
+    }
+
+    .neo-title {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-shadow: 4px 4px 0 #ff6b35;
+      margin-bottom: 0.5rem;
+    }
+
+    .neo-subtitle {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      color: #ff6b35;
+      text-transform: uppercase;
+    }
+
+    /* ===== MAIN ===== */
+    .neo-main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    /* ===== CARDS ===== */
+    .neo-card {
+      background: #141414;
+      border: 2px solid #333;
+      box-shadow: 6px 6px 0 #ff6b35;
+      padding: 2rem;
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .neo-card:hover {
+      box-shadow: 8px 8px 0 #ff6b35;
+      transform: translate(-2px, -2px);
+    }
+
+    .neo-section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #ff6b35;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #333;
+    }
+
+    /* ===== LISTS ===== */
+    .neo-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .neo-list li {
+      padding: 0.45rem 0;
+      font-size: 1rem;
+      color: #ccc;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .neo-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #ff6b35;
+      font-weight: bold;
+    }
+
+    .neo-list li code {
+      background: #1e1e1e;
+      color: #ff6b35;
+      padding: 0.15em 0.45em;
+      border-radius: 3px;
+      font-size: 0.9em;
+      border: 1px solid #333;
+    }
+
+    /* ===== PARAGRAPH ===== */
+    .neo-p {
+      font-size: 1rem;
+      color: #aaa;
+      margin-bottom: 0.75rem;
+      line-height: 1.8;
+    }
+
+    /* ===== CODE BLOCK ===== */
+    .neo-code {
+      background: #0d0d0d;
+      border: 2px solid #333;
+      border-left: 4px solid #ff6b35;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+      color: #4ade80;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      line-height: 1.8;
+      box-shadow: inset 0 0 30px rgba(255,107,53,0.03);
+    }
+
+    /* ===== CTA BUTTON ===== */
+    .neo-cta {
+      display: inline-block;
+      background: #ff6b35;
+      color: #0a0a0a;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.85rem 2rem;
+      border: 2px solid #ff6b35;
+      box-shadow: 5px 5px 0 #fff;
+      transition: all 0.12s ease;
+      margin-top: 0.5rem;
+    }
+
+    .neo-cta:hover {
+      background: #fff;
+      color: #0a0a0a;
+      border-color: #fff;
+      box-shadow: 3px 3px 0 #ff6b35;
+      transform: translate(2px, 2px);
+    }
+
+    /* ===== FOOTER ===== */
+    .neo-footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 3px solid #333;
+      text-align: center;
+    }
+
+    .neo-footer .neo-p {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ===== GLITCH EFFECT ===== */
+    .neo-glitch {
+      position: relative;
+      color: #ff6b35;
+      font-weight: 700;
+    }
+
+    .neo-glitch::before,
+    .neo-glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .neo-glitch::before {
+      color: #0ff;
+      animation: glitch 2s infinite;
+      clip-path: inset(33% 0 33% 0);
+    }
+
+    .neo-glitch::after {
+      color: #f0f;
+      animation: glitch 2s infinite reverse;
+      clip-path: inset(66% 0 0 0);
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -1px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -2px); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .container { padding: 2rem 1rem 3rem; }
+      .neo-card { padding: 1.5rem; box-shadow: 4px 4px 0 #ff6b35; }
+      .neo-card:hover { box-shadow: 5px 5px 0 #ff6b35; transform: translate(-1px, -1px); }
+      .neo-title { text-shadow: 3px 3px 0 #ff6b35; }
+      .neo-cta { box-shadow: 4px 4px 0 #fff; }
+      .neo-code { padding: 1rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="neo-header">
+      <h1 class="neo-title">HERMESMADE</h1>
+      <p class="neo-subtitle">PAIN-DRIVEN CLI TOOLS FOR DEVs</p>
+    </header>
+
+    <main class="neo-main">
+      <section class="neo-card">
+        <h2 class="neo-section-title">🔥 WHY?</h2>
+        <ul class="neo-list">
+          <li>Because "AI tools" ship broken APIs</li>
+          <li>Because "free tiers" vanish at 3AM</li>
+          <li>Because "docs" are 404 or written in Mandarin</li>
+          <li>Because you're tired of waiting for a PR</li>
+        </ul>
+      </section>
+
+      <section class="neo-card">
+        <h2 class="neo-section-title">🛠 TOOLS</h2>
+        <ul class="neo-list">
+          <li><code>prompt-inspector</code> — Detect hallucination & censorship</li>
+          <li><code>model-watch</code> — Track AI model degradation (GPT-5.4 → GPT-5.5)</li>
+          <li><code>api-cost</code> — Alert on token inflation & subscription bloat</li>
+          <li><code>llm-deploy</code> — Deploy 30B models on 8GB GPU (no Docker)</li>
+          <li><code>webdev-fixer</code> — Fix CORS, CSP, and "跨域" errors in 1 command</li>
+        </ul>
+      </section>
+
+      <section class="neo-card">
+        <h2 class="neo-section-title">📊 DATA SOURCE</h2>
+        <p class="neo-p">Scrapes real pain signals from:</p>
+        <ul class="neo-list">
+          <li>r/ChatGPT, r/ClaudeAI, r/LocalLLaMA</li>
+          <li>v2ex.com — <code>ai-tools</code>, <code>localllm</code>, <code>webdev</code>, <code>devops</code></li>
+          <li>CSDN & Juejin (via daily pipeline)</li>
+        </ul>
+      </section>
+
+      <section class="neo-card">
+        <h2 class="neo-section-title">⬇️ GET STARTED</h2>
+        <pre class="neo-code">$ pip install hermesmade
+$ hermesmade prompt-inspector --url https://api.example.com/v1/chat</pre>
+        <a href="https://github.com/minirr890112-byte/HermesMade" class="neo-cta">VIEW ON GITHUB →</a>
+      </section>
+    </main>
+
+    <footer class="neo-footer">
+      <p class="neo-p">Built with pain. Deployed via Cloudflare Pages. MIT Licensed.</p>
+      <p class="neo-p">© 2026 HermesMade — NO JS • NO TRACKING • NO BS</p>
+    </footer>
+  </div>
+</body>
+</html>
